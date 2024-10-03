@@ -1,0 +1,23 @@
+replicaCount: 3
+
+image:
+  repository: nginx
+  pullPolicy: IfNotPresent
+  tag: stable
+
+service:
+  type: ClusterIP
+  port: 80
+
+# Custom parameters for StatefulSet
+volumeMounts:
+  - name: nginx-storage
+    mountPath: /usr/share/nginx/html
+
+persistence:
+  enabled: true
+  storageClass: ""
+  accessModes:
+    - ReadWriteOnce
+  size: 1Gi
+
