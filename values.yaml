@@ -1,4 +1,4 @@
-replicaCount: {{ default 3 .Values.replicaCount }}
+replicaCount: 3
 
 image:
   repository: nginx
